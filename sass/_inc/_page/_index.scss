@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+$sprite: sprite-map("index/parts/*.png", $spacing: 4px);
+$sprite-img: sprite-url($sprite);
+
+.cnt-index{
+	@include bg-single("index/bg.png");
+	position: relative;
+}
+
+.btn-start{
+	@include position(230px 0 0 22px);
+	@include bg-sprite($sprite, $sprite-img, btn_start);
+}
+.btn-other{
+	@include position(300px 0 0 22px);
+	@include bg-sprite($sprite, $sprite-img, btn_other);
+}
+.btn-pop{
+	@include position(370px 0 0 22px);
+	@include bg-sprite($sprite, $sprite-img, btn_start);
+}

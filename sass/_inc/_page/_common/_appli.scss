@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+//==================================================
+// 各アプリ 全ページ共通
+//==================================================
+
+//ローディング
+.loading{
+	@include position(0 0 50px 0px,10000, 320px, 430px);
+	background: #000;
+}
+.loading-text{
+	@include position(0 10px 20px 0, null, 100%);
+	position: absolute;
+	text-align: right;
+	color: #fff;
+}
+
+// ボタンアニメーション
+.on{
+	@include animation(anim-btn 0.2s linear 1 normal);
+}
+@include keyframes(anim-btn) {
+	0%         { @include transform(scale(1.1)); }
+	99.9%,100% { @include transform(scale(1.0)); }
+}
+
+//==========================
+//共通ポップアップ
+//==========================
+#pop-common{
+	@include position(100px 0 0 10px,1000,300px);
+	@include border-radius(5px);
+	@include box-sizing(border-box);
+	@include box-shadow(0px 0px 10px #fff);
+	background-color: rgba(0,0,0,0.7);
+	border: solid 1px #fff;
+	padding: 25px 10px 10px 10px;
+	display: none;
+	line-height: 1.3;
+}
+#pop-common .prt-pop-body{
+	text-align: center;
+	color: #fff;
+}
+#pop-common .prt-pop-select{
+	width: 100%;
+	padding-top: 20px;
+	display: -webkit-box;
+	-webkit-box-sizing: border-box;
+	-webkit-box-pack:justify;
+}
+#pop-common[select="1"] .prt-pop-select>.btn-select1{
+	@include box-sizing(border-box);
+	@include border-radius(10px);
+	@include box-shadow(inset 0px 0px 5px #fff);
+	position: relative;
+	width: 100%;
+	height: 40px;
+	padding: 5px;
+	line-height: 30px;
+	text-align: center;
+	font-weight: bold;
+	color: #000;
+	border: solid 1px #666;
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#f7f7f7),
+		to(#a0a1a0));
+}
+#pop-common[select="1"] .prt-pop-select>.btn-select2{
+	display: none;
+}
+#pop-common[select="2"] .prt-pop-select>.btn-select1,
+#pop-common[select="2"] .prt-pop-select>.btn-select2{
+	@include border-radius(10px);
+	@include box-shadow(inset 0px 0px 5px #fff);
+	position: relative;
+	width: 125px;
+	height: 30px;
+	padding: 5px;
+	line-height: 30px;
+	text-align: center;
+	font-weight: bold;
+	color: #000;
+	border: solid 1px #666;
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#f7f7f7),
+		to(#a0a1a0));
+}
+.pop-show{
+	@include animation(pop-show 0.2s linear 1 normal);
+	display: block;
+}
+@include keyframes(pop-show) {
+	0%         { @include transform(scale(0.0)); opacity: 0;   }
+	85%        { @include transform(scale(1.2)); opacity: 0.9; }
+	99.9%,100% { @include transform(scale(1.0)); opacity: 0.9; }
+}
+.pop-hide{
+	@include animation(pop-hide 0.2s linear 1 normal);
+	@include transform(scale(0.0));
+	display: block;
+}
+@-webkit-keyframes pop-hide {
+	0%         { @include transform(scale(1.0)); opacity: 0.9; }
+	20%        { @include transform(scale(1.2)); opacity: 0.9; }
+	99.9%,100% { @include transform(scale(0));   opacity: 0;   }
+}
+//ポップ用マスク
+.mask{
+	@include position(0 0 0px 0px, 999, 320px, 430px);
+	background:#000;
+	display:none;
+	opacity: 0.4;
+}

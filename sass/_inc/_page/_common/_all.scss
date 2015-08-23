@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+//==================================================
+// OnederAppli の全アプリ共通
+//==================================================
+
+// ラッパー
+#wrapper{
+	width      :320px;
+	height     :100%;
+	max-height :568px;
+	background :#333;
+	position   :relative;
+	overflow   :hidden;
+	margin     :0 auto;
+}
+// 画面上部の宣伝領域
+.img-ad{
+	@include position(0 0 480px 0px,1, 320px, 88px);
+	background: #000;
+	display: none;
+}
+// コンテンツ
+#content{
+	@include position(0 0 50px 0px,null, 320px, 430px);
+	overflow: hidden;
+}

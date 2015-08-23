@@ -1,0 +1,8 @@
+@charset "utf-8";
+
+// 全ページ共通
+@import "../_inc/_inc_common";
+// 各ページで読み込み
+@import "../_inc/_base/_base";
+@import "../_inc/_page/_common/_all";
+@import "../_inc/_page/_common/_appli";

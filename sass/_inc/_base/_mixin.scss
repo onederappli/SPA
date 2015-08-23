@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+//===========================
+// 位置指定
+//===========================
+@mixin position($positions, $z-index:null, $width:null, $height:null) {
+	$top    : #{nth($positions,1)};
+	$rgiht  : #{nth($positions,2)};
+	$bottom : #{nth($positions,3)};
+	$left   : #{nth($positions,4)};
+
+	@if $top != '0' { top: $top; }
+	@if $rgiht != '0' { right: $rgiht; }
+	@if $bottom != '0' { bottom: $bottom; }
+	@if $left != '0' { left: $left; }
+
+	position: absolute;
+	z-index: $z-index;
+	width: $width;
+	height: $height;
+}
+
+//===========================
+// スプライト画像背景
+//===========================
+@mixin bg-sprite($sprite, $sprite-img, $name) {
+	$spriteWidth: image-width(sprite-path($sprite)) / 2;
+	$height: image-height(sprite-file($sprite,$name)) / 2;
+	$width: image-width(sprite-file($sprite,$name)) / 2;
+	$ypos: round(nth(sprite-position($sprite,$name),2) / 2);
+
+	background-image: $sprite-img;
+	background-repeat: no-repeat;
+	display: block;
+	height: $height;
+	width: $width;
+	background-position: 0 $ypos;
+	@include background-size($spriteWidth auto);
+}
+
+//===========================
+// シングル画像背景
+//===========================
+@mixin bg-single($img-path) {
+	background-image: image-url($img-path);
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: image-width($img-path) / 2;
+	height: image-height($img-path) / 2;
+}
